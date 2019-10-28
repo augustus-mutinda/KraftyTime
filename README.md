@@ -1,5 +1,5 @@
 # KraftyTime [![](https://jitpack.io/v/augustusiam/KraftyTime.svg)](https://jitpack.io/#augustusiam/KraftyTime)
-KraftTime is a small light liblary for displaying date in java or kotlin. It formarts date into whatsapp style date formating.
+KraftTime is a small light date formating liblary for displaying date in java or kotlin in android.
 
 # How do get KraftyTime?
 1. Add this to build level gradle file.
