@@ -1,6 +1,7 @@
 package com.kraftropic.kraftytime.core;
 
 import android.content.Context;
+import android.widget.TextView;
 
 import com.kraftropic.kraftytime.utils.KRAFT;
 
@@ -11,6 +12,7 @@ import java.util.Date;
 public class KraftTime {
 
     Context context;
+    String date;
 
     public static KraftTime with(Context context) {
         return new KraftTime();
@@ -84,6 +86,80 @@ public class KraftTime {
             default:
                 return null;
         }
+    }
+
+    public void setDate(Date date, String style) {
+        switch (style) {
+            case KRAFT.YYYYMMDD:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getYYYYMMDD(date);
+            case KRAFT.YYYYDDMM:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getYYYYDDMM(date);
+            case KRAFT.DDMMYYYY:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getDDMMYYYY(date);
+            case KRAFT.SHORT_WORD_YYYMMDD:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getShortYYYYMMDD(date);
+            case KRAFT.SHORT_WORD_YYYYDDMM:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getShortYYYYDDMM(date);
+            case KRAFT.SHORT_WORD_DDMMYYY:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getShortDDMMYYYY(date);
+            case KRAFT.WORD_YYYMMDD:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getWordYYYYMMDD(date);
+            case KRAFT.WORD_YYYYDDMM:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getWordYYYYDDMM(date);
+            case KRAFT.WORD_DDMMYYY:
+                if ((Calendar.getInstance().getTime().getTime() - 48 * 60 * 60 * 1000L) < date.getTime() && (Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) > date.getTime()) {
+                    this.date = "yesterday " + new SimpleDateFormat("HH:mm");
+                } else if ((Calendar.getInstance().getTime().getTime() - 24 * 60 * 60 * 1000L) < date.getTime()) {
+                    this.date = String.valueOf(new SimpleDateFormat("HH:mm"));
+                } else
+                    this.date = getWordDDMMYYYY(date);
+            default:
+                this.date = null;
+        }
+    }
+
+    public void into(TextView textView) {
+        textView.setText(date);
     }
 
     private String getYYYYMMDD(Date date) {
