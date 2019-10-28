@@ -17,3 +17,5 @@ KraftTime is a small light liblary for displaying date in java or kotlin. It for
 	        implementation 'com.github.augustusiam:KraftyTime:1.0.0'
 	}
 	```
+# License
+This liblary is released under [Apache V2.0 License](https://github.com/augustusiam/KraftyTime/blob/master/LICENSE).
