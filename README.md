@@ -14,7 +14,7 @@ KraftTime is a small light liblary for displaying date in java or kotlin. It for
 2. Then add this dependency to app level gradle file.
 	```
 	dependencies {
-	        implementation 'com.github.augustusiam:KraftyTime:1.0.0'
+	        implementation 'com.github.augustusiam:KraftyTime:Version'
 	}
 	```
 # License
